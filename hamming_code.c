@@ -67,7 +67,7 @@ void errordetect()
 		p[i]=(cnt%2==1)?1:0;
 
 	}
-    printf("Array of Parity bits is:\n");
+    	printf("Array of Parity bits is:\n");
 	for(i=0;i<r;i++)
 	{
 		printf("%d\n",p[i]);
@@ -130,39 +130,39 @@ void hammingcode()
 	}
 	printf("Initial Hamming Code is:\n");
 	for(i=1;i<=(n+r);i++)
-    {
-        printf("%d",main[i]);
-    }
+    	{
+        	printf("%d",main[i]);
+    	}
 
-    printf("\n");
+    	printf("\n");
 
-    for(i=0;i<r;i++)
+    	for(i=0;i<r;i++)
 	{
 		cnt=0;
 		for(j=pow(2,i);j<=(n+r);j=j+pow(2,i+1))
 		{
 			for(k=0;k<pow(2,i);k++)
 			{
-                if((j+k)<=(n+r))
-                {
-                   if(main[j+k]==1)
-					cnt++;
-                }
-
+                		if((j+k)<=(n+r))
+                		{
+                   			if(main[j+k]==1)
+						cnt++;
+                		}
 			}
+
 		}
 
 		p[i]=(cnt%2==1)?1:0;
 	}
 
-
 	printf("Array of Parity Bits is\n");
 	for(i=0;i<r;i++)
-    {
-        printf("%d",p[i]);
-    }
-    printf("\n");
-
+    	{
+        	printf("%d",p[i]);
+    	}
+    	printf("\n");
+	
+	//Setting The Actual Values Of Parity Bits
 	i=0;
 	for(l=1;l<=r;l++)
 	{
@@ -171,10 +171,10 @@ void hammingcode()
 	}
 	printf("Final Hamming Code is:\n");
 	for(i=1;i<=(n+r);i++)
-    {
-        printf("%d\n",main[i]);
-    }
+    	{
+        	printf("%d\n",main[i]);
+    	}
 
 }
-
+//End of Code
 
