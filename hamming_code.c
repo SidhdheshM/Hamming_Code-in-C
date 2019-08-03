@@ -14,17 +14,17 @@ void main()
 	printf("What operation you want?\n");
 	printf("1. Hamming Code Generation\t2.Error Detection\n");
 	scanf("%d",&a);
-    switch(a)
+    	switch(a)
 	{
 		case 1:
-		    hammingcode();
-		    break;
+			hammingcode();
+			break;
 		case 2:
-		    errordetect();
-		    break;
-        default:
-            printf("Invalid input");
-
+			errordetect();
+			break;
+       		default:
+            		printf("Invalid input");
+			break();
 
 	}
 
