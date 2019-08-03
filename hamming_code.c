@@ -1,13 +1,12 @@
+//For Hamming Code Generation we take input as Data bits and based on Number of Data Bits we add Parity Bits.
+//In this code initially I have inserted parity Bits as 0 since location where parity bit is to be inserted is important at first.
+//After getting the location now we set the value of parity bits as 0 or 1 based on our even/odd parity rule. I have taken EVEN Parity
 
-
-// Error Detection using Hamming code
 #include<stdio.h>
 #include<math.h>
 
 void errordetect();
 void hammingcode();
-
-//int errordetect(int);
 //Even Parity
 void main()
 {
@@ -34,13 +33,12 @@ void main()
 void errordetect()
 {
 	int n,num=0,d[100],p[10],i,j,k,r,cnt;
-	//printf("SAP ID: 60004170110\n");
 	printf("Enter number of Bits of the Hamming Code:  ");
 	scanf("%d",&n);
 	for(i=1;i<=n;i++)
 	{
-		printf("Bit number %d: ",i);
-		scanf("%d",&d[i]);
+		printf("Bit number %d: ",i);	//Here the Input consists of both Data bits and Parity Bits
+		scanf("%d",&d[i]);			
 
 	}
 
@@ -75,20 +73,18 @@ void errordetect()
 		printf("%d\n",p[i]);
 	}
 
-
-
 	//Error Detection
 	for(i=0;i<r;i++)
 	{
 		num=num+(p[i]*pow(2,i));
 	}
 	if(num!=0)
-        printf("Error detected at postion %d. Thus invert bit number %d",num,num);
+        	printf("Error detected at postion %d. Thus invert bit number %d",num,num);
 
-    else
-        printf("No error");
+    	else
+        	printf("No error");
 
-}//End of Error Detect Fuction.Thus we find the erronous bit
+}//End of Error Detect Fuction.Thus we find the position of erronous bit
 
 
 void hammingcode()
@@ -99,23 +95,22 @@ void hammingcode()
 	i=1;
 	while(i<=n)
 	{
-		printf("Data Bit number %d: ",i);
+		printf("Data Bit number %d: ",i);	//Taking Input as Only Data Bits
 		scanf("%d",&d[i]);
 		i++;
 	}
 	r=0;
 	while(pow(2,r)< (n+r+1))
-    {
-     r++;
-    }
+    	{
+     		r++;
+    	}
 	printf("\n");
 	printf("Number of Parity Bits: %d\n",r);
 
 
 
-	// Main array
-
-
+	// Finding Location of additional(parity) bits and putting value of those bits as 0 in new 'main' array
+	
 	for(i=1;i<=n+r;i++)
 	{
 		for(j=log(i)/log(2);j<=log(i)/log(2);j++)
@@ -125,10 +120,10 @@ void hammingcode()
 				loc[l]=i;
 				main[i]=0;
 				l++;
-            }
+            		}
 			else
 			{
-				main[i]=d[k];
+				main[i]=d[k];	//Remaining Data Bits is Copied from d[] to main[]
 				k++;
 			}
 		}
