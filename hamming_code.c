@@ -24,8 +24,6 @@ void main()
 			break;
        		default:
             		printf("Invalid input");
-			break();
-
 	}
 
 }
